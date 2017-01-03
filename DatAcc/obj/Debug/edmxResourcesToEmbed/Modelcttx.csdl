@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EntitiesDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AGENDABOX" EntityType="Model.AGENDABOX" />
+    <EntitySet Name="BOX" EntityType="Model.BOX" />
+    <EntitySet Name="CENTROS" EntityType="Model.CENTROS" />
+    <EntitySet Name="EQUIPOMEDICO" EntityType="Model.EQUIPOMEDICO" />
+    <EntitySet Name="ESTADO" EntityType="Model.ESTADO" />
+    <EntitySet Name="ETAPA" EntityType="Model.ETAPA" />
+    <EntitySet Name="FICHAPACIENTE" EntityType="Model.FICHAPACIENTE" />
+    <EntitySet Name="PACIENTE" EntityType="Model.PACIENTE" />
+    <EntitySet Name="PAQUETEINSUMO" EntityType="Model.PAQUETEINSUMO" />
+    <EntitySet Name="PATOLOGIA" EntityType="Model.PATOLOGIA" />
+    <EntitySet Name="PERIODO" EntityType="Model.PERIODO" />
+    <EntitySet Name="PERSONAS" EntityType="Model.PERSONAS" />
+    <EntitySet Name="PROFESIONAL" EntityType="Model.PROFESIONAL" />
+    <EntitySet Name="TIPO_USUARIOS" EntityType="Model.TIPO_USUARIOS" />
+    <EntitySet Name="TIPOPERSONA" EntityType="Model.TIPOPERSONA" />
+    <EntitySet Name="TRATAMIENTO" EntityType="Model.TRATAMIENTO" />
+    <EntitySet Name="USUARIOS" EntityType="Model.USUARIOS" />
+    <AssociationSet Name="AGENDABOX_BOX_FK" Association="Model.AGENDABOX_BOX_FK">
+      <End Role="BOX" EntitySet="BOX" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_EQUIPOMEDICO_FK" Association="Model.AGENDABOX_EQUIPOMEDICO_FK">
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_FICHAPACIENTE_FK" Association="Model.AGENDABOX_FICHAPACIENTE_FK">
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_PERIODO_FK" Association="Model.AGENDABOX_PERIODO_FK">
+      <End Role="PERIODO" EntitySet="PERIODO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_CENTROS_FK" Association="Model.BOX_CENTROS_FK">
+      <End Role="CENTROS" EntitySet="CENTROS" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_ESTADO_FK" Association="Model.BOX_ESTADO_FK">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_PAQUETEINSUMO_FK" Association="Model.BOX_PAQUETEINSUMO_FK">
+      <End Role="PAQUETEINSUMO" EntitySet="PAQUETEINSUMO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="EQUIPOMEDICO_PERSONAS_FK" Association="Model.EQUIPOMEDICO_PERSONAS_FK">
+      <End Role="PERSONAS" EntitySet="PERSONAS" />
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+    </AssociationSet>
+    <AssociationSet Name="PACIENTE_ETAPA_FK" Association="Model.PACIENTE_ETAPA_FK">
+      <End Role="ETAPA" EntitySet="ETAPA" />
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PACIENTE_FK" Association="Model.FICHAPACIENTE_PACIENTE_FK">
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PATOLOGIA_FK" Association="Model.FICHAPACIENTE_PATOLOGIA_FK">
+      <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AGENDABOX">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FECHATRATAMIENTO" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="TIEMPOTRATAMIENTO" Type="DateTime" Nullable="false" />
+    <Property Name="BOX_IDBOX" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FICHAPACIENTE_IDFICHAPACIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="EQUIPOMEDICO_IDEQUIPOMEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="PERIODO_IDPERIODO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPOTRATAMIENTO" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="ID_PROFESIONAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="BOX" Relationship="Model.AGENDABOX_BOX_FK" FromRole="AGENDABOX" ToRole="BOX" />
+    <NavigationProperty Name="EQUIPOMEDICO" Relationship="Model.AGENDABOX_EQUIPOMEDICO_FK" FromRole="AGENDABOX" ToRole="EQUIPOMEDICO" />
+    <NavigationProperty Name="FICHAPACIENTE" Relationship="Model.AGENDABOX_FICHAPACIENTE_FK" FromRole="AGENDABOX" ToRole="FICHAPACIENTE" />
+    <NavigationProperty Name="PERIODO" Relationship="Model.AGENDABOX_PERIODO_FK" FromRole="AGENDABOX" ToRole="PERIODO" />
+  </EntityType>
+  <EntityType Name="BOX">
+    <Key>
+      <PropertyRef Name="IDBOX" />
+    </Key>
+    <Property Name="IDBOX" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TAMA_" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="PAQUETEINSUMO_IDPAQUETEINSUMO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="CENTROS_IDCENTRO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ESTADO_IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="AGENDABOX" Relationship="Model.AGENDABOX_BOX_FK" FromRole="BOX" ToRole="AGENDABOX" />
+    <NavigationProperty Name="CENTROS" Relationship="Model.BOX_CENTROS_FK" FromRole="BOX" ToRole="CENTROS" />
+    <NavigationProperty Name="ESTADO" Relationship="Model.BOX_ESTADO_FK" FromRole="BOX" ToRole="ESTADO" />
+    <NavigationProperty Name="PAQUETEINSUMO" Relationship="Model.BOX_PAQUETEINSUMO_FK" FromRole="BOX" ToRole="PAQUETEINSUMO" />
+  </EntityType>
+  <EntityType Name="CENTROS">
+    <Key>
+      <PropertyRef Name="IDCENTRO" />
+    </Key>
+    <Property Name="IDCENTRO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="TELEFONO" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BOX" Relationship="Model.BOX_CENTROS_FK" FromRole="CENTROS" ToRole="BOX" />
+  </EntityType>
+  <EntityType Name="EQUIPOMEDICO">
+    <Key>
+      <PropertyRef Name="IDEQUIPOMEDICO" />
+    </Key>
+    <Property Name="IDEQUIPOMEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+    <Property Name="DESCRIPCIONEQUIPO" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="AGENDABOX" Relationship="Model.AGENDABOX_EQUIPOMEDICO_FK" FromRole="EQUIPOMEDICO" ToRole="AGENDABOX" />
+    <NavigationProperty Name="PERSONAS" Relationship="Model.EQUIPOMEDICO_PERSONAS_FK" FromRole="EQUIPOMEDICO" ToRole="PERSONAS" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDESTADO" />
+    </Key>
+    <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BOX" Relationship="Model.BOX_ESTADO_FK" FromRole="ESTADO" ToRole="BOX" />
+  </EntityType>
+  <EntityType Name="ETAPA">
+    <Key>
+      <PropertyRef Name="IDETAPA" />
+    </Key>
+    <Property Name="IDETAPA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="PACIENTE" Relationship="Model.PACIENTE_ETAPA_FK" FromRole="ETAPA" ToRole="PACIENTE" />
+  </EntityType>
+  <EntityType Name="FICHAPACIENTE">
+    <Key>
+      <PropertyRef Name="IDFICHAPACIENTE" />
+    </Key>
+    <Property Name="IDFICHAPACIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FECHAINICIO" Type="DateTime" Nullable="false" />
+    <Property Name="PACIENTE_RUTPACIENTE" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PATOLOGIA_IDPATOLOGIA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TRATAMIENTO_IDTRATAMIENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="AGENDABOX" Relationship="Model.AGENDABOX_FICHAPACIENTE_FK" FromRole="FICHAPACIENTE" ToRole="AGENDABOX" />
+    <NavigationProperty Name="PACIENTE" Relationship="Model.FICHAPACIENTE_PACIENTE_FK" FromRole="FICHAPACIENTE" ToRole="PACIENTE" />
+    <NavigationProperty Name="PATOLOGIA" Relationship="Model.FICHAPACIENTE_PATOLOGIA_FK" FromRole="FICHAPACIENTE" ToRole="PATOLOGIA" />
+  </EntityType>
+  <EntityType Name="PACIENTE">
+    <Key>
+      <PropertyRef Name="RUTPACIENTE" />
+    </Key>
+    <Property Name="RUTPACIENTE" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="EDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ETAPA_IDETAPA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="ETAPA" Relationship="Model.PACIENTE_ETAPA_FK" FromRole="PACIENTE" ToRole="ETAPA" />
+    <NavigationProperty Name="FICHAPACIENTE" Relationship="Model.FICHAPACIENTE_PACIENTE_FK" FromRole="PACIENTE" ToRole="FICHAPACIENTE" />
+  </EntityType>
+  <EntityType Name="PAQUETEINSUMO">
+    <Key>
+      <PropertyRef Name="IDPAQUETEINSUMO" />
+    </Key>
+    <Property Name="IDPAQUETEINSUMO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BOX" Relationship="Model.BOX_PAQUETEINSUMO_FK" FromRole="PAQUETEINSUMO" ToRole="BOX" />
+  </EntityType>
+  <EntityType Name="PATOLOGIA">
+    <Key>
+      <PropertyRef Name="IDPATOLOGIA" />
+    </Key>
+    <Property Name="IDPATOLOGIA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="FICHAPACIENTE" Relationship="Model.FICHAPACIENTE_PATOLOGIA_FK" FromRole="PATOLOGIA" ToRole="FICHAPACIENTE" />
+  </EntityType>
+  <EntityType Name="PERIODO">
+    <Key>
+      <PropertyRef Name="IDPERIODO" />
+    </Key>
+    <Property Name="IDPERIODO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="HORAAGENDA" Type="DateTime" Nullable="false" />
+    <Property Name="FECHAEFECTIVA" Type="DateTime" Nullable="false" />
+    <Property Name="DURACION" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="AGENDABOX" Relationship="Model.AGENDABOX_PERIODO_FK" FromRole="PERIODO" ToRole="AGENDABOX" />
+  </EntityType>
+  <EntityType Name="PERSONAS">
+    <Key>
+      <PropertyRef Name="ID_PERSONA" />
+    </Key>
+    <Property Name="ID_PERSONA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="RUT" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="EDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPOPERSONA_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="EQUIPOMEDICO" Relationship="Model.EQUIPOMEDICO_PERSONAS_FK" FromRole="PERSONAS" ToRole="EQUIPOMEDICO" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ESPECIALIDAD" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="PERSONAS_PERSONAID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TIPO_USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_TIPOUSUARIO" />
+    </Key>
+    <Property Name="ID_TIPOUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="520" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TIPOPERSONA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="PROFESION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="AÑOSEXPERIENCIA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TRATAMIENTO">
+    <Key>
+      <PropertyRef Name="IDTRATAMIENTO" />
+    </Key>
+    <Property Name="IDTRATAMIENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPOTRATAMIENTO" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="CANTIDADSESIONES" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="SESIONESFINALIZADAS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IDUSUARIOS" />
+    </Key>
+    <Property Name="IDUSUARIOS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPOUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <Association Name="AGENDABOX_BOX_FK">
+    <End Role="BOX" Type="Model.BOX" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOX">
+        <PropertyRef Name="IDBOX" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="BOX_IDBOX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_EQUIPOMEDICO_FK">
+    <End Role="EQUIPOMEDICO" Type="Model.EQUIPOMEDICO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EQUIPOMEDICO">
+        <PropertyRef Name="IDEQUIPOMEDICO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="EQUIPOMEDICO_IDEQUIPOMEDICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_FICHAPACIENTE_FK">
+    <End Role="FICHAPACIENTE" Type="Model.FICHAPACIENTE" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FICHAPACIENTE">
+        <PropertyRef Name="IDFICHAPACIENTE" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="FICHAPACIENTE_IDFICHAPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_PERIODO_FK">
+    <End Role="PERIODO" Type="Model.PERIODO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERIODO">
+        <PropertyRef Name="IDPERIODO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="PERIODO_IDPERIODO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_CENTROS_FK">
+    <End Role="CENTROS" Type="Model.CENTROS" Multiplicity="1" />
+    <End Role="BOX" Type="Model.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS">
+        <PropertyRef Name="IDCENTRO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="CENTROS_IDCENTRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_ESTADO_FK">
+    <End Role="ESTADO" Type="Model.ESTADO" Multiplicity="1" />
+    <End Role="BOX" Type="Model.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="IDESTADO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="ESTADO_IDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_PAQUETEINSUMO_FK">
+    <End Role="PAQUETEINSUMO" Type="Model.PAQUETEINSUMO" Multiplicity="1" />
+    <End Role="BOX" Type="Model.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAQUETEINSUMO">
+        <PropertyRef Name="IDPAQUETEINSUMO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="PAQUETEINSUMO_IDPAQUETEINSUMO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EQUIPOMEDICO_PERSONAS_FK">
+    <End Role="PERSONAS" Type="Model.PERSONAS" Multiplicity="1" />
+    <End Role="EQUIPOMEDICO" Type="Model.EQUIPOMEDICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAS">
+        <PropertyRef Name="ID_PERSONA" />
+      </Principal>
+      <Dependent Role="EQUIPOMEDICO">
+        <PropertyRef Name="PERSONAS_ID_PERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PACIENTE_ETAPA_FK">
+    <End Role="ETAPA" Type="Model.ETAPA" Multiplicity="1" />
+    <End Role="PACIENTE" Type="Model.PACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ETAPA">
+        <PropertyRef Name="IDETAPA" />
+      </Principal>
+      <Dependent Role="PACIENTE">
+        <PropertyRef Name="ETAPA_IDETAPA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PACIENTE_FK">
+    <End Role="PACIENTE" Type="Model.PACIENTE" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Model.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTE">
+        <PropertyRef Name="RUTPACIENTE" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PACIENTE_RUTPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PATOLOGIA_FK">
+    <End Role="PATOLOGIA" Type="Model.PATOLOGIA" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Model.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PATOLOGIA">
+        <PropertyRef Name="IDPATOLOGIA" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PATOLOGIA_IDPATOLOGIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

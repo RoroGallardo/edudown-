@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AGENDABOX" EntityType="Model.Store.AGENDABOX" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="BOX" EntityType="Model.Store.BOX" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="CENTROS" EntityType="Model.Store.CENTROS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="EQUIPOMEDICO" EntityType="Model.Store.EQUIPOMEDICO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="ESTADO" EntityType="Model.Store.ESTADO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="ETAPA" EntityType="Model.Store.ETAPA" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="FICHAPACIENTE" EntityType="Model.Store.FICHAPACIENTE" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PACIENTE" EntityType="Model.Store.PACIENTE" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PAQUETEINSUMO" EntityType="Model.Store.PAQUETEINSUMO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PATOLOGIA" EntityType="Model.Store.PATOLOGIA" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PERIODO" EntityType="Model.Store.PERIODO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PERSONAS" EntityType="Model.Store.PERSONAS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PROFESIONAL" EntityType="Model.Store.PROFESIONAL" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="TIPO_USUARIOS" EntityType="Model.Store.TIPO_USUARIOS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="TIPOPERSONA" EntityType="Model.Store.TIPOPERSONA" store:Type="Tables" store:Schema="EDDB" store:Name="TIPOPERSONA">
+      <DefiningQuery>SELECT 
+      "TIPOPERSONA"."ID" AS "ID", 
+      "TIPOPERSONA"."PROFESION" AS "PROFESION", 
+      "TIPOPERSONA"."AÑOSEXPERIENCIA" AS "AÑOSEXPERIENCIA"
+      FROM "EDDB"."TIPOPERSONA" "TIPOPERSONA"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TRATAMIENTO" EntityType="Model.Store.TRATAMIENTO" store:Type="Tables" store:Schema="EDDB" store:Name="TRATAMIENTO">
+      <DefiningQuery>SELECT 
+      "TRATAMIENTO"."IDTRATAMIENTO" AS "IDTRATAMIENTO", 
+      "TRATAMIENTO"."TIPOTRATAMIENTO" AS "TIPOTRATAMIENTO", 
+      "TRATAMIENTO"."DESCRIPCION" AS "DESCRIPCION", 
+      "TRATAMIENTO"."CANTIDADSESIONES" AS "CANTIDADSESIONES", 
+      "TRATAMIENTO"."SESIONESFINALIZADAS" AS "SESIONESFINALIZADAS"
+      FROM "EDDB"."TRATAMIENTO" "TRATAMIENTO"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="USUARIOS" EntityType="Model.Store.USUARIOS" store:Type="Tables" store:Schema="EDDB" store:Name="USUARIOS">
+      <DefiningQuery>SELECT 
+      "USUARIOS"."IDUSUARIOS" AS "IDUSUARIOS", 
+      "USUARIOS"."USERNAME" AS "USERNAME", 
+      "USUARIOS"."PASSWORD" AS "PASSWORD", 
+      "USUARIOS"."PERSONAS_ID_PERSONA" AS "PERSONAS_ID_PERSONA", 
+      "USUARIOS"."TIPOUSUARIO" AS "TIPOUSUARIO"
+      FROM "EDDB"."USUARIOS" "USUARIOS"</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="AGENDABOX">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="FECHATRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="TIEMPOTRATAMIENTO" Type="varchar2" MaxLength="250" />
+    <Property Name="BOX_IDBOX" Type="number" Nullable="false" />
+    <Property Name="FICHAPACIENTE_IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="EQUIPOMEDICO_IDEQUIPOMEDICO" Type="number" />
+    <Property Name="PERIODO_IDPERIODO" Type="number" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="ID_PROFESIONAL" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BOX">
+    <Key>
+      <PropertyRef Name="IDBOX" />
+    </Key>
+    <Property Name="IDBOX" Type="number" Nullable="false" />
+    <Property Name="TAMANO" Type="number" Nullable="false" />
+    <Property Name="TIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PAQUETEINSUMO_IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CENTROS_IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="ESTADO_IDESTADO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CENTROS">
+    <Key>
+      <PropertyRef Name="IDCENTRO" />
+    </Key>
+    <Property Name="IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="200" />
+    <Property Name="DIRECCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="TELEFONO" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EQUIPOMEDICO">
+    <Key>
+      <PropertyRef Name="IDEQUIPOMEDICO" />
+    </Key>
+    <Property Name="IDEQUIPOMEDICO" Type="number" Nullable="false" />
+    <Property Name="FECHACREACION" Type="date" Nullable="false" />
+    <Property Name="DESCRIPCIONEQUIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDESTADO" />
+    </Key>
+    <Property Name="IDESTADO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="40" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ETAPA">
+    <Key>
+      <PropertyRef Name="IDETAPA" />
+    </Key>
+    <Property Name="IDETAPA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="FICHAPACIENTE">
+    <Key>
+      <PropertyRef Name="IDFICHAPACIENTE" />
+    </Key>
+    <Property Name="IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="FECHAINICIO" Type="date" Nullable="false" />
+    <Property Name="PACIENTE_RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PATOLOGIA_IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="TRATAMIENTO_IDTRATAMIENTO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PACIENTE">
+    <Key>
+      <PropertyRef Name="RUTPACIENTE" />
+    </Key>
+    <Property Name="RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="ETAPA_IDETAPA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAQUETEINSUMO">
+    <Key>
+      <PropertyRef Name="IDPAQUETEINSUMO" />
+    </Key>
+    <Property Name="IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CANTIDAD" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PATOLOGIA">
+    <Key>
+      <PropertyRef Name="IDPATOLOGIA" />
+    </Key>
+    <Property Name="IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="500" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PERIODO">
+    <Key>
+      <PropertyRef Name="IDPERIODO" />
+    </Key>
+    <Property Name="IDPERIODO" Type="number" Nullable="false" />
+    <Property Name="HORAAGENDA" Type="date" Nullable="false" />
+    <Property Name="FECHAEFECTIVA" Type="date" Nullable="false" />
+    <Property Name="DURACION" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAS">
+    <Key>
+      <PropertyRef Name="ID_PERSONA" />
+    </Key>
+    <Property Name="ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="RUT" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="TELEFONO" Type="number" Nullable="false" />
+    <Property Name="TIPOPERSONA_ID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ESPECIALIDAD" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ID_PERSONA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_TIPOUSUARIO" />
+    </Key>
+    <Property Name="ID_TIPOUSUARIO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'EDDB.TIPOPERSONA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="TIPOPERSONA">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PROFESION" />
+      <PropertyRef Name="AÑOSEXPERIENCIA" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="PROFESION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="AÑOSEXPERIENCIA" Type="number" Nullable="false" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'EDDB.TRATAMIENTO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="TRATAMIENTO">
+    <Key>
+      <PropertyRef Name="IDTRATAMIENTO" />
+      <PropertyRef Name="TIPOTRATAMIENTO" />
+      <PropertyRef Name="DESCRIPCION" />
+      <PropertyRef Name="CANTIDADSESIONES" />
+      <PropertyRef Name="SESIONESFINALIZADAS" />
+    </Key>
+    <Property Name="IDTRATAMIENTO" Type="number" Nullable="false" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="CANTIDADSESIONES" Type="number" Nullable="false" />
+    <Property Name="SESIONESFINALIZADAS" Type="number" Nullable="false" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'EDDB.USUARIOS' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IDUSUARIOS" />
+      <PropertyRef Name="USERNAME" />
+      <PropertyRef Name="PASSWORD" />
+      <PropertyRef Name="PERSONAS_ID_PERSONA" />
+    </Key>
+    <Property Name="IDUSUARIOS" Type="number" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="TIPOUSUARIO" Type="number" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Presentacion.SiteMaster" %>
+
+<html  xml:lang="en">
+<head id="Head1" runat="server">
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/timepicker/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="js/transition.min.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="js/timepicker/jquery.timepicker.css" />
+ 
+    <%--<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />--%>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.css"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-image: url(./Styles/fondos.jpg); background-repeat:no-repeat; ">
+    <form id="Form1" runat="server">
+    <div class=" " >
+   
+
+<nav class="navbar navbar-default navbar-inverse fadeInDown animated"  role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">EDUDOW</span>
+ 
+      </button>
+      <a class="navbar-brand" style="padding: 7px" href="index.aspx" title="">
+          <img src="./Styles/logo.jpg" border="0" class="im" style=" width:40px ; height:40px;  vertical-align : middle;">
+     </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.aspx">INICIO</a></li>
+      </ul>
+        
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">    <asp:Label ID="lblUser" Font-Size="15px" runat="server" Text=" "></asp:Label> </p></li>
+        <asp:Button ID="Button1" CssClass="btn btn-info" runat="server" Text="LOGOUT" 
+            onclick="btnLogout_Click1" />
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  
+</nav>
+<%----------------------------navigator--%>
+        <div class="">
+        <div class="col-md-4 fadeInLeft animated " style="text-align: center; background-color: rgba(255, 0, 0, 0.5);  ">    
+              <br>
+              <br>
+              <asp:Button ID="btnAdUsers" CssClass="btn btn-success  " class="center-block" width="60%" Visible="false" runat="server" 
+                  Text="ADMINISTRAR USUARIOS" onclick="btnAdUsers_Click"  /> <br>
+              <asp:Button ID="btnadCentros" CssClass="btn btn-success " width="60%" class="center-block" Visible="false"  runat="server" 
+                  Text="ADMINISTRAR CENTROS" onclick="btnadCentros_Click" /><br>
+              <asp:Button ID="btnAdminBox" CssClass="btn btn-success   " Visible="false" width="60%" 
+                  class="center-block" runat="server" Text="ADMINISTRAR BOXS" 
+                  onclick="btnAdminBox_Click1" /><br>
+                  <asp:Button ID="btnAdminTrat" CssClass="btn btn-success   " width="60%" 
+                  class="center-block" Visible="false"  runat="server" 
+                  Text="ADMINISTRAR TRATAMIENTOS" onclick="btnAdminTrat_Click"  /><br>
+                  <asp:Button ID="btnAdminFichas" CssClass="btn btn-success   " width="60%" 
+                  class="center-block" Visible="false"  runat="server" 
+                  Text="ADMINISTRAR FICHAS" onclick="btnAdminFichas_Click"  /><br> 
+              <asp:Button ID="btnAdminPac" CssClass="btn btn-success   " width="60%" 
+                  class="center-block" Visible="false"  runat="server" 
+                  Text="ADMINISTRAR PACIENTES" onclick="btnAdminPac_Click" /><br>
+              <asp:Button ID="btnAgregarHora" CssClass="btn btn-success " width="60%" class="center-block" Visible="false"   
+                  runat="server" Text="AGENDAR HORA" onclick="btnAgregarHora_Click2" /><br>
+              <asp:Button ID="btnAdminEqui" CssClass="btn btn-success   " width="60%" class="center-block" Visible="false"  runat="server" Text="ADMINISTRAR EQUIPO MEDICO" /><br>
+              
+              <br><br> <br><br><br><br><br><br><br><br><br>
+        </div>
+            <div class="col-md-1">
+            </div>
+        <div class="col-md-8 pull-left fadeInRight animated" style="text-align: center;  background-color: rgba(146, 123, 204, 0.7);" >
+              <asp:ContentPlaceHolder  ID="Main"  runat="server">
+            </asp:ContentPlaceHolder>
+        </div>  
+        </div> 
+         
+    </div>
+     <asp:ContentPlaceHolder ID="Menu" runat="server">
+            </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

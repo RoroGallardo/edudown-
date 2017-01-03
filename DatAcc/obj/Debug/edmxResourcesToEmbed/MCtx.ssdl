@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Enties.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EntiesStoreContainer">
+    <EntitySet Name="AGENDABOX" EntityType="Enties.Store.AGENDABOX" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="BOX" EntityType="Enties.Store.BOX" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="CENTROS" EntityType="Enties.Store.CENTROS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="EQUIPOMEDICO" EntityType="Enties.Store.EQUIPOMEDICO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="ESTADO" EntityType="Enties.Store.ESTADO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="ETAPA" EntityType="Enties.Store.ETAPA" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="FICHAPACIENTE" EntityType="Enties.Store.FICHAPACIENTE" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PACIENTE" EntityType="Enties.Store.PACIENTE" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PAQUETEINSUMO" EntityType="Enties.Store.PAQUETEINSUMO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PATOLOGIA" EntityType="Enties.Store.PATOLOGIA" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PERIODO" EntityType="Enties.Store.PERIODO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PERSONAS" EntityType="Enties.Store.PERSONAS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="PROFESIONAL" EntityType="Enties.Store.PROFESIONAL" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="TIPO_USUARIOS" EntityType="Enties.Store.TIPO_USUARIOS" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="TIPOPERSONA" EntityType="Enties.Store.TIPOPERSONA" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="TRATAMIENTO" EntityType="Enties.Store.TRATAMIENTO" store:Type="Tables" Schema="EDDB" />
+    <EntitySet Name="USUARIOS" EntityType="Enties.Store.USUARIOS" store:Type="Tables" Schema="EDDB" />
+    <AssociationSet Name="AGENDABOX_BOX_FK" Association="Enties.Store.AGENDABOX_BOX_FK">
+      <End Role="BOX" EntitySet="BOX" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_EQUIPOMEDICO_FK" Association="Enties.Store.AGENDABOX_EQUIPOMEDICO_FK">
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_FICHAPACIENTE_FK" Association="Enties.Store.AGENDABOX_FICHAPACIENTE_FK">
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_PERIODO_FK" Association="Enties.Store.AGENDABOX_PERIODO_FK">
+      <End Role="PERIODO" EntitySet="PERIODO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_CENTROS_FK" Association="Enties.Store.BOX_CENTROS_FK">
+      <End Role="CENTROS" EntitySet="CENTROS" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_ESTADO_FK" Association="Enties.Store.BOX_ESTADO_FK">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_PAQUETEINSUMO_FK" Association="Enties.Store.BOX_PAQUETEINSUMO_FK">
+      <End Role="PAQUETEINSUMO" EntitySet="PAQUETEINSUMO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="EQUIPOMEDICO_PERSONAS_FK" Association="Enties.Store.EQUIPOMEDICO_PERSONAS_FK">
+      <End Role="PERSONAS" EntitySet="PERSONAS" />
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PACIENTE_FK" Association="Enties.Store.FICHAPACIENTE_PACIENTE_FK">
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PATOLOGIA_FK" Association="Enties.Store.FICHAPACIENTE_PATOLOGIA_FK">
+      <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="PACIENTE_ETAPA_FK" Association="Enties.Store.PACIENTE_ETAPA_FK">
+      <End Role="ETAPA" EntitySet="ETAPA" />
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AGENDABOX">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="FECHATRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="TIEMPOTRATAMIENTO" Type="date" Nullable="false" />
+    <Property Name="BOX_IDBOX" Type="number" Nullable="false" />
+    <Property Name="FICHAPACIENTE_IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="EQUIPOMEDICO_IDEQUIPOMEDICO" Type="number" Nullable="false" />
+    <Property Name="PERIODO_IDPERIODO" Type="number" Nullable="false" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="ID_PROFESIONAL" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BOX">
+    <Key>
+      <PropertyRef Name="IDBOX" />
+    </Key>
+    <Property Name="IDBOX" Type="number" Nullable="false" />
+    <Property Name="TAMA�" Type="number" Nullable="false" />
+    <Property Name="TIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PAQUETEINSUMO_IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CENTROS_IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="ESTADO_IDESTADO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CENTROS">
+    <Key>
+      <PropertyRef Name="IDCENTRO" />
+    </Key>
+    <Property Name="IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="200" />
+    <Property Name="DIRECCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="TELEFONO" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EQUIPOMEDICO">
+    <Key>
+      <PropertyRef Name="IDEQUIPOMEDICO" />
+    </Key>
+    <Property Name="IDEQUIPOMEDICO" Type="number" Nullable="false" />
+    <Property Name="FECHACREACION" Type="date" Nullable="false" />
+    <Property Name="DESCRIPCIONEQUIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDESTADO" />
+    </Key>
+    <Property Name="IDESTADO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="40" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ETAPA">
+    <Key>
+      <PropertyRef Name="IDETAPA" />
+    </Key>
+    <Property Name="IDETAPA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="FICHAPACIENTE">
+    <Key>
+      <PropertyRef Name="IDFICHAPACIENTE" />
+    </Key>
+    <Property Name="IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="FECHAINICIO" Type="date" Nullable="false" />
+    <Property Name="PACIENTE_RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PATOLOGIA_IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="TRATAMIENTO_IDTRATAMIENTO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PACIENTE">
+    <Key>
+      <PropertyRef Name="RUTPACIENTE" />
+    </Key>
+    <Property Name="RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="ETAPA_IDETAPA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAQUETEINSUMO">
+    <Key>
+      <PropertyRef Name="IDPAQUETEINSUMO" />
+    </Key>
+    <Property Name="IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CANTIDAD" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PATOLOGIA">
+    <Key>
+      <PropertyRef Name="IDPATOLOGIA" />
+    </Key>
+    <Property Name="IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="500" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PERIODO">
+    <Key>
+      <PropertyRef Name="IDPERIODO" />
+    </Key>
+    <Property Name="IDPERIODO" Type="number" Nullable="false" />
+    <Property Name="HORAAGENDA" Type="date" Nullable="false" />
+    <Property Name="FECHAEFECTIVA" Type="date" Nullable="false" />
+    <Property Name="DURACION" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAS">
+    <Key>
+      <PropertyRef Name="ID_PERSONA" />
+    </Key>
+    <Property Name="ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="RUT" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="TELEFONO" Type="number" Nullable="false" />
+    <Property Name="TIPOPERSONA_ID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ESPECIALIDAD" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="PERSONAS_PERSONAID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_TIPOUSUARIO" />
+    </Key>
+    <Property Name="ID_TIPOUSUARIO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="520" />
+  </EntityType>
+  <EntityType Name="TIPOPERSONA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="PROFESION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="AÑOSEXPERIENCIA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRATAMIENTO">
+    <Key>
+      <PropertyRef Name="IDTRATAMIENTO" />
+    </Key>
+    <Property Name="IDTRATAMIENTO" Type="number" Nullable="false" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="CANTIDADSESIONES" Type="number" Nullable="false" />
+    <Property Name="SESIONESFINALIZADAS" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IDUSUARIOS" />
+    </Key>
+    <Property Name="IDUSUARIOS" Type="number" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="TIPOUSUARIO" Type="number" />
+  </EntityType>
+  <Association Name="AGENDABOX_BOX_FK">
+    <End Role="BOX" Type="Enties.Store.BOX" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Enties.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOX">
+        <PropertyRef Name="IDBOX" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="BOX_IDBOX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_EQUIPOMEDICO_FK">
+    <End Role="EQUIPOMEDICO" Type="Enties.Store.EQUIPOMEDICO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Enties.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EQUIPOMEDICO">
+        <PropertyRef Name="IDEQUIPOMEDICO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="EQUIPOMEDICO_IDEQUIPOMEDICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_FICHAPACIENTE_FK">
+    <End Role="FICHAPACIENTE" Type="Enties.Store.FICHAPACIENTE" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Enties.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FICHAPACIENTE">
+        <PropertyRef Name="IDFICHAPACIENTE" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="FICHAPACIENTE_IDFICHAPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_PERIODO_FK">
+    <End Role="PERIODO" Type="Enties.Store.PERIODO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Enties.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERIODO">
+        <PropertyRef Name="IDPERIODO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="PERIODO_IDPERIODO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_CENTROS_FK">
+    <End Role="CENTROS" Type="Enties.Store.CENTROS" Multiplicity="1" />
+    <End Role="BOX" Type="Enties.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS">
+        <PropertyRef Name="IDCENTRO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="CENTROS_IDCENTRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_ESTADO_FK">
+    <End Role="ESTADO" Type="Enties.Store.ESTADO" Multiplicity="1" />
+    <End Role="BOX" Type="Enties.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="IDESTADO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="ESTADO_IDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_PAQUETEINSUMO_FK">
+    <End Role="PAQUETEINSUMO" Type="Enties.Store.PAQUETEINSUMO" Multiplicity="1" />
+    <End Role="BOX" Type="Enties.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAQUETEINSUMO">
+        <PropertyRef Name="IDPAQUETEINSUMO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="PAQUETEINSUMO_IDPAQUETEINSUMO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EQUIPOMEDICO_PERSONAS_FK">
+    <End Role="PERSONAS" Type="Enties.Store.PERSONAS" Multiplicity="1" />
+    <End Role="EQUIPOMEDICO" Type="Enties.Store.EQUIPOMEDICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAS">
+        <PropertyRef Name="ID_PERSONA" />
+      </Principal>
+      <Dependent Role="EQUIPOMEDICO">
+        <PropertyRef Name="PERSONAS_ID_PERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PACIENTE_FK">
+    <End Role="PACIENTE" Type="Enties.Store.PACIENTE" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Enties.Store.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTE">
+        <PropertyRef Name="RUTPACIENTE" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PACIENTE_RUTPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PATOLOGIA_FK">
+    <End Role="PATOLOGIA" Type="Enties.Store.PATOLOGIA" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Enties.Store.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PATOLOGIA">
+        <PropertyRef Name="IDPATOLOGIA" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PATOLOGIA_IDPATOLOGIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PACIENTE_ETAPA_FK">
+    <End Role="ETAPA" Type="Enties.Store.ETAPA" Multiplicity="1" />
+    <End Role="PACIENTE" Type="Enties.Store.PACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ETAPA">
+        <PropertyRef Name="IDETAPA" />
+      </Principal>
+      <Dependent Role="PACIENTE">
+        <PropertyRef Name="ETAPA_IDETAPA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

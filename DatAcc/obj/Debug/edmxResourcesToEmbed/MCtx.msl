@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntiesStoreContainer" CdmEntityContainer="EntitiesDaBa">
+    <EntitySetMapping Name="AGENDABOX">
+      <EntityTypeMapping TypeName="Enties.AGENDABOX">
+        <MappingFragment StoreEntitySet="AGENDABOX">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHATRATAMIENTO" ColumnName="FECHATRATAMIENTO" />
+          <ScalarProperty Name="TIEMPOTRATAMIENTO" ColumnName="TIEMPOTRATAMIENTO" />
+          <ScalarProperty Name="BOX_IDBOX" ColumnName="BOX_IDBOX" />
+          <ScalarProperty Name="FICHAPACIENTE_IDFICHAPACIENTE" ColumnName="FICHAPACIENTE_IDFICHAPACIENTE" />
+          <ScalarProperty Name="EQUIPOMEDICO_IDEQUIPOMEDICO" ColumnName="EQUIPOMEDICO_IDEQUIPOMEDICO" />
+          <ScalarProperty Name="PERIODO_IDPERIODO" ColumnName="PERIODO_IDPERIODO" />
+          <ScalarProperty Name="TIPOTRATAMIENTO" ColumnName="TIPOTRATAMIENTO" />
+          <ScalarProperty Name="ID_PROFESIONAL" ColumnName="ID_PROFESIONAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOX">
+      <EntityTypeMapping TypeName="Enties.BOX">
+        <MappingFragment StoreEntitySet="BOX">
+          <ScalarProperty Name="IDBOX" ColumnName="IDBOX" />
+          <ScalarProperty Name="TAMA_" ColumnName="TAMA�" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PAQUETEINSUMO_IDPAQUETEINSUMO" ColumnName="PAQUETEINSUMO_IDPAQUETEINSUMO" />
+          <ScalarProperty Name="CENTROS_IDCENTRO" ColumnName="CENTROS_IDCENTRO" />
+          <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CENTROS">
+      <EntityTypeMapping TypeName="Enties.CENTROS">
+        <MappingFragment StoreEntitySet="CENTROS">
+          <ScalarProperty Name="IDCENTRO" ColumnName="IDCENTRO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EQUIPOMEDICO">
+      <EntityTypeMapping TypeName="Enties.EQUIPOMEDICO">
+        <MappingFragment StoreEntitySet="EQUIPOMEDICO">
+          <ScalarProperty Name="IDEQUIPOMEDICO" ColumnName="IDEQUIPOMEDICO" />
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+          <ScalarProperty Name="DESCRIPCIONEQUIPO" ColumnName="DESCRIPCIONEQUIPO" />
+          <ScalarProperty Name="PERSONAS_ID_PERSONA" ColumnName="PERSONAS_ID_PERSONA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO">
+      <EntityTypeMapping TypeName="Enties.ESTADO">
+        <MappingFragment StoreEntitySet="ESTADO">
+          <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETAPA">
+      <EntityTypeMapping TypeName="Enties.ETAPA">
+        <MappingFragment StoreEntitySet="ETAPA">
+          <ScalarProperty Name="IDETAPA" ColumnName="IDETAPA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FICHAPACIENTE">
+      <EntityTypeMapping TypeName="Enties.FICHAPACIENTE">
+        <MappingFragment StoreEntitySet="FICHAPACIENTE">
+          <ScalarProperty Name="IDFICHAPACIENTE" ColumnName="IDFICHAPACIENTE" />
+          <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+          <ScalarProperty Name="PACIENTE_RUTPACIENTE" ColumnName="PACIENTE_RUTPACIENTE" />
+          <ScalarProperty Name="PATOLOGIA_IDPATOLOGIA" ColumnName="PATOLOGIA_IDPATOLOGIA" />
+          <ScalarProperty Name="TRATAMIENTO_IDTRATAMIENTO" ColumnName="TRATAMIENTO_IDTRATAMIENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACIENTE">
+      <EntityTypeMapping TypeName="Enties.PACIENTE">
+        <MappingFragment StoreEntitySet="PACIENTE">
+          <ScalarProperty Name="RUTPACIENTE" ColumnName="RUTPACIENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="ETAPA_IDETAPA" ColumnName="ETAPA_IDETAPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAQUETEINSUMO">
+      <EntityTypeMapping TypeName="Enties.PAQUETEINSUMO">
+        <MappingFragment StoreEntitySet="PAQUETEINSUMO">
+          <ScalarProperty Name="IDPAQUETEINSUMO" ColumnName="IDPAQUETEINSUMO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PATOLOGIA">
+      <EntityTypeMapping TypeName="Enties.PATOLOGIA">
+        <MappingFragment StoreEntitySet="PATOLOGIA">
+          <ScalarProperty Name="IDPATOLOGIA" ColumnName="IDPATOLOGIA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERIODO">
+      <EntityTypeMapping TypeName="Enties.PERIODO">
+        <MappingFragment StoreEntitySet="PERIODO">
+          <ScalarProperty Name="IDPERIODO" ColumnName="IDPERIODO" />
+          <ScalarProperty Name="HORAAGENDA" ColumnName="HORAAGENDA" />
+          <ScalarProperty Name="FECHAEFECTIVA" ColumnName="FECHAEFECTIVA" />
+          <ScalarProperty Name="DURACION" ColumnName="DURACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONAS">
+      <EntityTypeMapping TypeName="Enties.PERSONAS">
+        <MappingFragment StoreEntitySet="PERSONAS">
+          <ScalarProperty Name="ID_PERSONA" ColumnName="ID_PERSONA" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="TIPOPERSONA_ID" ColumnName="TIPOPERSONA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROFESIONAL">
+      <EntityTypeMapping TypeName="Enties.PROFESIONAL">
+        <MappingFragment StoreEntitySet="PROFESIONAL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+          <ScalarProperty Name="PERSONAS_PERSONAID" ColumnName="PERSONAS_PERSONAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_USUARIOS">
+      <EntityTypeMapping TypeName="Enties.TIPO_USUARIOS">
+        <MappingFragment StoreEntitySet="TIPO_USUARIOS">
+          <ScalarProperty Name="ID_TIPOUSUARIO" ColumnName="ID_TIPOUSUARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOPERSONA">
+      <EntityTypeMapping TypeName="Enties.TIPOPERSONA">
+        <MappingFragment StoreEntitySet="TIPOPERSONA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+          <ScalarProperty Name="AÑOSEXPERIENCIA" ColumnName="AÑOSEXPERIENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRATAMIENTO">
+      <EntityTypeMapping TypeName="Enties.TRATAMIENTO">
+        <MappingFragment StoreEntitySet="TRATAMIENTO">
+          <ScalarProperty Name="IDTRATAMIENTO" ColumnName="IDTRATAMIENTO" />
+          <ScalarProperty Name="TIPOTRATAMIENTO" ColumnName="TIPOTRATAMIENTO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="CANTIDADSESIONES" ColumnName="CANTIDADSESIONES" />
+          <ScalarProperty Name="SESIONESFINALIZADAS" ColumnName="SESIONESFINALIZADAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="Enties.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="IDUSUARIOS" ColumnName="IDUSUARIOS" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PERSONAS_ID_PERSONA" ColumnName="PERSONAS_ID_PERSONA" />
+          <ScalarProperty Name="TIPOUSUARIO" ColumnName="TIPOUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AGENDABOX" EntityType="Model.Store.AGENDABOX" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="BOX" EntityType="Model.Store.BOX" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="CENTROS" EntityType="Model.Store.CENTROS" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="DEPT" EntityType="Model.Store.DEPT" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="EMP" EntityType="Model.Store.EMP" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="EQUIPOMEDICO" EntityType="Model.Store.EQUIPOMEDICO" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="ESTADO" EntityType="Model.Store.ESTADO" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="ETAPA" EntityType="Model.Store.ETAPA" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="FICHAPACIENTE" EntityType="Model.Store.FICHAPACIENTE" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PACIENTE" EntityType="Model.Store.PACIENTE" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PAQUETEINSUMO" EntityType="Model.Store.PAQUETEINSUMO" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PATOLOGIA" EntityType="Model.Store.PATOLOGIA" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PERIODO" EntityType="Model.Store.PERIODO" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PERSONAS" EntityType="Model.Store.PERSONAS" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="PROFESIONAL" EntityType="Model.Store.PROFESIONAL" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="TIPO_USUARIOS" EntityType="Model.Store.TIPO_USUARIOS" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="TIPOPERSONA" EntityType="Model.Store.TIPOPERSONA" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="TRATAMIENTO" EntityType="Model.Store.TRATAMIENTO" store:Type="Tables" Schema="SP" />
+    <EntitySet Name="USUARIOS" EntityType="Model.Store.USUARIOS" store:Type="Tables" Schema="SP" />
+    <AssociationSet Name="AGENDABOX_BOX_FK" Association="Model.Store.AGENDABOX_BOX_FK">
+      <End Role="BOX" EntitySet="BOX" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_EQUIPOMEDICO_FK" Association="Model.Store.AGENDABOX_EQUIPOMEDICO_FK">
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_FICHAPACIENTE_FK" Association="Model.Store.AGENDABOX_FICHAPACIENTE_FK">
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="AGENDABOX_PERIODO_FK" Association="Model.Store.AGENDABOX_PERIODO_FK">
+      <End Role="PERIODO" EntitySet="PERIODO" />
+      <End Role="AGENDABOX" EntitySet="AGENDABOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_CENTROS_FK" Association="Model.Store.BOX_CENTROS_FK">
+      <End Role="CENTROS" EntitySet="CENTROS" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_ESTADO_FK" Association="Model.Store.BOX_ESTADO_FK">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="BOX_PAQUETEINSUMO_FK" Association="Model.Store.BOX_PAQUETEINSUMO_FK">
+      <End Role="PAQUETEINSUMO" EntitySet="PAQUETEINSUMO" />
+      <End Role="BOX" EntitySet="BOX" />
+    </AssociationSet>
+    <AssociationSet Name="EQUIPOMEDICO_PERSONAS_FK" Association="Model.Store.EQUIPOMEDICO_PERSONAS_FK">
+      <End Role="PERSONAS" EntitySet="PERSONAS" />
+      <End Role="EQUIPOMEDICO" EntitySet="EQUIPOMEDICO" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PACIENTE_FK" Association="Model.Store.FICHAPACIENTE_PACIENTE_FK">
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FICHAPACIENTE_PATOLOGIA_FK" Association="Model.Store.FICHAPACIENTE_PATOLOGIA_FK">
+      <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+      <End Role="FICHAPACIENTE" EntitySet="FICHAPACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="PACIENTE_ETAPA_FK" Association="Model.Store.PACIENTE_ETAPA_FK">
+      <End Role="ETAPA" EntitySet="ETAPA" />
+      <End Role="PACIENTE" EntitySet="PACIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007095" Association="Model.Store.SYS_C007095">
+      <End Role="EMP" EntitySet="EMP" />
+      <End Role="EMP1" EntitySet="EMP" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007096" Association="Model.Store.SYS_C007096">
+      <End Role="DEPT" EntitySet="DEPT" />
+      <End Role="EMP" EntitySet="EMP" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AGENDABOX">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="FECHATRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="TIEMPOTRATAMIENTO" Type="date" Nullable="false" />
+    <Property Name="BOX_IDBOX" Type="number" Nullable="false" />
+    <Property Name="FICHAPACIENTE_IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="EQUIPOMEDICO_IDEQUIPOMEDICO" Type="number" Nullable="false" />
+    <Property Name="PERIODO_IDPERIODO" Type="number" Nullable="false" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="ID_PROFESIONAL" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BOX">
+    <Key>
+      <PropertyRef Name="IDBOX" />
+    </Key>
+    <Property Name="IDBOX" Type="number" Nullable="false" />
+    <Property Name="TAMA?" Type="number" Nullable="false" />
+    <Property Name="TIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PAQUETEINSUMO_IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CENTROS_IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="ESTADO_IDESTADO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CENTROS">
+    <Key>
+      <PropertyRef Name="IDCENTRO" />
+    </Key>
+    <Property Name="IDCENTRO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="200" />
+    <Property Name="DIRECCION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="TELEFONO" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="DEPT">
+    <Key>
+      <PropertyRef Name="DEPTNO" />
+    </Key>
+    <Property Name="DEPTNO" Type="number" Nullable="false" Precision="2" />
+    <Property Name="DNAME" Type="varchar2" MaxLength="14" />
+    <Property Name="LOC" Type="varchar2" MaxLength="13" />
+  </EntityType>
+  <EntityType Name="EMP">
+    <Key>
+      <PropertyRef Name="EMPNO" />
+    </Key>
+    <Property Name="EMPNO" Type="number" Nullable="false" Precision="4" />
+    <Property Name="ENAME" Type="varchar2" MaxLength="10" />
+    <Property Name="JOB" Type="varchar2" MaxLength="9" />
+    <Property Name="MGR" Type="number" Precision="4" />
+    <Property Name="HIREDATE" Type="date" />
+    <Property Name="SAL" Type="number" Precision="7" Scale="2" />
+    <Property Name="COMM" Type="number" Precision="7" Scale="2" />
+    <Property Name="DEPTNO" Type="number" Precision="2" />
+  </EntityType>
+  <EntityType Name="EQUIPOMEDICO">
+    <Key>
+      <PropertyRef Name="IDEQUIPOMEDICO" />
+    </Key>
+    <Property Name="IDEQUIPOMEDICO" Type="number" Nullable="false" />
+    <Property Name="FECHACREACION" Type="date" Nullable="false" />
+    <Property Name="DESCRIPCIONEQUIPO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDESTADO" />
+    </Key>
+    <Property Name="IDESTADO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="40" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ETAPA">
+    <Key>
+      <PropertyRef Name="IDETAPA" />
+    </Key>
+    <Property Name="IDETAPA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="FICHAPACIENTE">
+    <Key>
+      <PropertyRef Name="IDFICHAPACIENTE" />
+    </Key>
+    <Property Name="IDFICHAPACIENTE" Type="number" Nullable="false" />
+    <Property Name="FECHAINICIO" Type="date" Nullable="false" />
+    <Property Name="PACIENTE_RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PATOLOGIA_IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="TRATAMIENTO_IDTRATAMIENTO" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PACIENTE">
+    <Key>
+      <PropertyRef Name="RUTPACIENTE" />
+    </Key>
+    <Property Name="RUTPACIENTE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="ETAPA_IDETAPA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAQUETEINSUMO">
+    <Key>
+      <PropertyRef Name="IDPAQUETEINSUMO" />
+    </Key>
+    <Property Name="IDPAQUETEINSUMO" Type="number" Nullable="false" />
+    <Property Name="CANTIDAD" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PATOLOGIA">
+    <Key>
+      <PropertyRef Name="IDPATOLOGIA" />
+    </Key>
+    <Property Name="IDPATOLOGIA" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="500" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PERIODO">
+    <Key>
+      <PropertyRef Name="IDPERIODO" />
+    </Key>
+    <Property Name="IDPERIODO" Type="number" Nullable="false" />
+    <Property Name="DESDE" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="HASTA" Type="varchar2" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PERSONAS">
+    <Key>
+      <PropertyRef Name="ID_PERSONA" />
+    </Key>
+    <Property Name="ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="RUT" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="EDAD" Type="number" Nullable="false" />
+    <Property Name="TELEFONO" Type="number" Nullable="false" />
+    <Property Name="TIPOPERSONA_ID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ESPECIALIDAD" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="PERSONAS_PERSONAID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_TIPOUSUARIO" />
+    </Key>
+    <Property Name="ID_TIPOUSUARIO" Type="number" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="520" />
+  </EntityType>
+  <EntityType Name="TIPOPERSONA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="PROFESION" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="AÑOSEXPERIENCIA" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRATAMIENTO">
+    <Key>
+      <PropertyRef Name="IDTRATAMIENTO" />
+    </Key>
+    <Property Name="IDTRATAMIENTO" Type="number" Nullable="false" />
+    <Property Name="TIPOTRATAMIENTO" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="250" />
+    <Property Name="CANTIDADSESIONES" Type="number" Nullable="false" />
+    <Property Name="SESIONESFINALIZADAS" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IDUSUARIOS" />
+    </Key>
+    <Property Name="IDUSUARIOS" Type="number" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PERSONAS_ID_PERSONA" Type="number" Nullable="false" />
+    <Property Name="TIPOUSUARIO" Type="number" />
+  </EntityType>
+  <Association Name="AGENDABOX_BOX_FK">
+    <End Role="BOX" Type="Model.Store.BOX" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOX">
+        <PropertyRef Name="IDBOX" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="BOX_IDBOX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_EQUIPOMEDICO_FK">
+    <End Role="EQUIPOMEDICO" Type="Model.Store.EQUIPOMEDICO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EQUIPOMEDICO">
+        <PropertyRef Name="IDEQUIPOMEDICO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="EQUIPOMEDICO_IDEQUIPOMEDICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_FICHAPACIENTE_FK">
+    <End Role="FICHAPACIENTE" Type="Model.Store.FICHAPACIENTE" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FICHAPACIENTE">
+        <PropertyRef Name="IDFICHAPACIENTE" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="FICHAPACIENTE_IDFICHAPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AGENDABOX_PERIODO_FK">
+    <End Role="PERIODO" Type="Model.Store.PERIODO" Multiplicity="1" />
+    <End Role="AGENDABOX" Type="Model.Store.AGENDABOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERIODO">
+        <PropertyRef Name="IDPERIODO" />
+      </Principal>
+      <Dependent Role="AGENDABOX">
+        <PropertyRef Name="PERIODO_IDPERIODO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_CENTROS_FK">
+    <End Role="CENTROS" Type="Model.Store.CENTROS" Multiplicity="1" />
+    <End Role="BOX" Type="Model.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS">
+        <PropertyRef Name="IDCENTRO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="CENTROS_IDCENTRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_ESTADO_FK">
+    <End Role="ESTADO" Type="Model.Store.ESTADO" Multiplicity="1" />
+    <End Role="BOX" Type="Model.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="IDESTADO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="ESTADO_IDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOX_PAQUETEINSUMO_FK">
+    <End Role="PAQUETEINSUMO" Type="Model.Store.PAQUETEINSUMO" Multiplicity="1" />
+    <End Role="BOX" Type="Model.Store.BOX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAQUETEINSUMO">
+        <PropertyRef Name="IDPAQUETEINSUMO" />
+      </Principal>
+      <Dependent Role="BOX">
+        <PropertyRef Name="PAQUETEINSUMO_IDPAQUETEINSUMO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EQUIPOMEDICO_PERSONAS_FK">
+    <End Role="PERSONAS" Type="Model.Store.PERSONAS" Multiplicity="1" />
+    <End Role="EQUIPOMEDICO" Type="Model.Store.EQUIPOMEDICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAS">
+        <PropertyRef Name="ID_PERSONA" />
+      </Principal>
+      <Dependent Role="EQUIPOMEDICO">
+        <PropertyRef Name="PERSONAS_ID_PERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PACIENTE_FK">
+    <End Role="PACIENTE" Type="Model.Store.PACIENTE" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Model.Store.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACIENTE">
+        <PropertyRef Name="RUTPACIENTE" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PACIENTE_RUTPACIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FICHAPACIENTE_PATOLOGIA_FK">
+    <End Role="PATOLOGIA" Type="Model.Store.PATOLOGIA" Multiplicity="1" />
+    <End Role="FICHAPACIENTE" Type="Model.Store.FICHAPACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PATOLOGIA">
+        <PropertyRef Name="IDPATOLOGIA" />
+      </Principal>
+      <Dependent Role="FICHAPACIENTE">
+        <PropertyRef Name="PATOLOGIA_IDPATOLOGIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PACIENTE_ETAPA_FK">
+    <End Role="ETAPA" Type="Model.Store.ETAPA" Multiplicity="1" />
+    <End Role="PACIENTE" Type="Model.Store.PACIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ETAPA">
+        <PropertyRef Name="IDETAPA" />
+      </Principal>
+      <Dependent Role="PACIENTE">
+        <PropertyRef Name="ETAPA_IDETAPA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007095">
+    <End Role="EMP" Type="Model.Store.EMP" Multiplicity="0..1" />
+    <End Role="EMP1" Type="Model.Store.EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMP">
+        <PropertyRef Name="EMPNO" />
+      </Principal>
+      <Dependent Role="EMP1">
+        <PropertyRef Name="MGR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007096">
+    <End Role="DEPT" Type="Model.Store.DEPT" Multiplicity="0..1" />
+    <End Role="EMP" Type="Model.Store.EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPT">
+        <PropertyRef Name="DEPTNO" />
+      </Principal>
+      <Dependent Role="EMP">
+        <PropertyRef Name="DEPTNO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CUSTOM_HASH" ReturnType="varchar2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_USERNAME" Type="varchar2" Mode="In" />
+    <Parameter Name="P_PASSWORD" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARAGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARBOX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDBOX" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARCENTRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDCENTRO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINAREQMEDICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDEQUIPOMEDICO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDESTADO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARETAPA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDETAPA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARFCHPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDFICHAPACIENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_RUTPACIENTE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARPAQINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPAQUETEINSUMO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARPATOLOGIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPATOLOGIA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARPERIODO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPERIODO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARPERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARTIPOPERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARTIPOUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID_TIPOUSUARIO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARTRATAMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDTRATAMIENTO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="ELIMINARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDUSUARIOS" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARAGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_EQUIPOMEDICO_IDEQUIPOMEDICO" Type="number" Mode="In" />
+    <Parameter Name="P_TIEMPOTRATAMIENTO" Type="date" Mode="In" />
+    <Parameter Name="P_PERIODO_IDPERIODO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPOTRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_FECHATRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ID_PROFESIONAL" Type="number" Mode="In" />
+    <Parameter Name="P_BOX_IDBOX" Type="number" Mode="In" />
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+    <Parameter Name="P_FICHAPACIENTE_IDFP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARBOX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_TAMANO" Type="number" Mode="In" />
+    <Parameter Name="P_ESTADO_IDESTADO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDBOX" Type="number" Mode="In" />
+    <Parameter Name="P_CENTROS_IDCENTRO" Type="number" Mode="In" />
+    <Parameter Name="P_PAQUETEINSUMO_IDPI" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARCENTRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDCENTRO" Type="number" Mode="In" />
+    <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTAREQMEDICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_PERSONAS_ID_PERSONA" Type="number" Mode="In" />
+    <Parameter Name="P_FECHACREACION" Type="date" Mode="In" />
+    <Parameter Name="P_DESCRIPCIONEQUIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDEQUIPOMEDICO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDESTADO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARETAPA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDETAPA" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARFCHPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_FECHAINICIO" Type="date" Mode="In" />
+    <Parameter Name="P_PATOLOGIA_IDPATOLOGIA" Type="number" Mode="In" />
+    <Parameter Name="P_IDFICHAPACIENTE" Type="number" Mode="In" />
+    <Parameter Name="P_TRATAMIENTO_IDTRATAMIENTO" Type="number" Mode="In" />
+    <Parameter Name="P_PACIENTE_RUTPACIENTE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_EDAD" Type="number" Mode="In" />
+    <Parameter Name="P_RUTPACIENTE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ETAPA_IDETAPA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARPAQINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPAQUETEINSUMO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARPERIODO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_HASTA" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDPERIODO" Type="number" Mode="In" />
+    <Parameter Name="P_DESDE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARPERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ID_PERSONA" Type="number" Mode="In" />
+    <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_EDAD" Type="number" Mode="In" />
+    <Parameter Name="P_TELEFONO" Type="number" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_TIPOPERSONA_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARPROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_PERSONAS_PERSONAID" Type="number" Mode="In" />
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+    <Parameter Name="P_ESPECIALIDAD" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARTIPOPERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_PROFESION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_AÑOSEXPERIENCIA" Type="number" Mode="In" />
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARTIPOUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID_TIPOUSUARIO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTARTRATAMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDTRATAMIENTO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPOTRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_SESIONESFINALIZADAS" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_CANTIDADSESIONES" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_TIPOUSUARIO" Type="number" Mode="In" />
+    <Parameter Name="P_PERSONAS_ID_PERSONA" Type="number" Mode="In" />
+    <Parameter Name="P_PASSWORD" Type="varchar2" Mode="In" />
+    <Parameter Name="P_USERNAME" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDUSUARIOS" Type="number" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARAGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_EQUIPOMEDICO_IDEQUIPOMEDICO" Type="number" Mode="In" />
+    <Parameter Name="P_TIEMPOTRATAMIENTO" Type="date" Mode="In" />
+    <Parameter Name="P_PERIODO_IDPERIODO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPOTRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_FECHATRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ID_PROFESIONAL" Type="number" Mode="In" />
+    <Parameter Name="P_BOX_IDBOX" Type="number" Mode="In" />
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+    <Parameter Name="P_FICHAPACIENTE_IDFP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARBOX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_TAMANO" Type="number" Mode="In" />
+    <Parameter Name="P_ESTADO_IDESTADO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDBOX" Type="number" Mode="In" />
+    <Parameter Name="P_CENTROS_IDCENTRO" Type="number" Mode="In" />
+    <Parameter Name="P_PAQUETEINSUMO_IDPI" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARCENTROS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDCENTRO" Type="number" Mode="In" />
+    <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICAREQMEDICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_PERSONAS_ID_PERSONA" Type="number" Mode="In" />
+    <Parameter Name="P_FECHACREACION" Type="date" Mode="In" />
+    <Parameter Name="P_DESCRIPCIONEQUIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDEQUIPOMEDICO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDESTADO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARETAPA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDETAPA" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARFCHPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_FECHAINICIO" Type="date" Mode="In" />
+    <Parameter Name="P_PATOLOGIA_IDPATOLOGIA" Type="number" Mode="In" />
+    <Parameter Name="P_IDFICHAPACIENTE" Type="number" Mode="In" />
+    <Parameter Name="P_TRATAMIENTO_IDTRATAMIENTO" Type="number" Mode="In" />
+    <Parameter Name="P_PACIENTE_RUTPACIENTE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_EDAD" Type="number" Mode="In" />
+    <Parameter Name="P_RUTPACIENTE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ETAPA_IDETAPA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPAQINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPAQUETEINSUMO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPATOLOGIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDPATOLOGIA" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPERIODO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_HASTA" Type="varchar2" Mode="In" />
+    <Parameter Name="P_IDPERIODO" Type="number" Mode="In" />
+    <Parameter Name="P_DESDE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="P_ID_PERSONA" Type="number" Mode="In" />
+    <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_EDAD" Type="number" Mode="In" />
+    <Parameter Name="P_TELEFONO" Type="number" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="P_TIPOPERSONA_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARPROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_PERSONAS_PERSONAID" Type="number" Mode="In" />
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+    <Parameter Name="P_ESPECIALIDAD" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARTIPOUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_ID_TIPOUSUARIO" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="MODIFICARTRATAMINETO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SP">
+    <Parameter Name="P_IDTRATAMIENTO" Type="number" Mode="In" />
+    <Parameter Name="P_TIPOTRATAMIENTO" Type="varchar2" Mode="In" />
+    <Parameter Name="P_SESIONESFINALIZADAS" Type="number" Mode="In" />
+    <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="P_CANTIDADSESIONES" Type="number" Mode="In" />
+  </Function>
+</Schema>
